@@ -9,11 +9,11 @@ interface WordDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertWord(word: Word)
 
-    @Query(value = "DELETE FROM word_table")
-    fun deleteAllWords()
-
     @Delete
     fun deleteWord(word: Word)
+
+    @Query(value = "DELETE FROM word_table")
+    fun deleteAllWords()
 
     @Query(value = "SELECT * FROM word_table ORDER BY name ASC")
     fun getAllWords(): LiveData<List<Word>>
